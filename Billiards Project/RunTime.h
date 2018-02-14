@@ -49,4 +49,5 @@ private:
 	Drag* drag; //drag pointer for declaring how drag operates in the scene
 	float massInput; //float for taking dynamic mass for billiards
 	vec2 velocityInput; //vec2 for declaring initial velocity of the cue ball
+	vec2 positionInput;
 };

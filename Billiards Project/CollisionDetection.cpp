@@ -61,20 +61,20 @@ void CollisionDetection::SegmentCircleCollisionTest(Segment & s1, Circle & c1) /
 	if ((distance1 < lengthOfSeg) && (distance2 < lengthOfSeg)
 		&& (-dot(r, s1.getNormal()) < c1.getRadius()))
 	{
-		cout << "COLLISION SEG-CIRCLE "<< distance1 <<" < "<< lengthOfSeg<< " && " << distance2 << " < " << lengthOfSeg << endl;//debugging output
+		//cout << "COLLISION SEG-CIRCLE "<< distance1 <<" < "<< lengthOfSeg<< " && " << distance2 << " < " << lengthOfSeg << endl;//debugging output
 
 		c1.setVelocity(-velPerp + velParallel);
 
 	}
 	else if ((distance1 > lengthOfSeg) && (distance2 < c1.getRadius()))
 	{
-		cout << "COLLISION SEG-CIRCLE " << distance1 << " > " << lengthOfSeg << " && " << distance2 << " < " << c1.getRadius() << endl;//debugging output
+		//cout << "COLLISION SEG-CIRCLE " << distance1 << " > " << lengthOfSeg << " && " << distance2 << " < " << c1.getRadius() << endl;//debugging output
 
 		c1.setVelocity(-velPerp + velParallel);
 
 	}else if ((distance2 > lengthOfSeg) && (distance1 < c1.getRadius()))
 	{
-		cout << "COLLISION SEG-CIRCLE " << distance2 << " >LENGTH && " << distance1 << " < " << c1.getRadius() << endl;//debugging output
+		//cout << "COLLISION SEG-CIRCLE " << distance2 << " >LENGTH && " << distance1 << " < " << c1.getRadius() << endl;//debugging output
 
 		c1.setVelocity(-velPerp + velParallel);
 
@@ -102,7 +102,7 @@ bool CollisionDetection::CircleCircleCollisionTest(Circle & c1, Circle & c2, flo
 	  */
 	if (distanceBetweenCircles < (c1.getRadius() + c2.getRadius()))
 	{
-		cout << "2 Collisions occuring between Circles" << endl;
+		//cout << "2 Collisions occuring between Circles" << endl;
 		cR.setObjects(vector<Circle*> { &c1, &c2 });
 		cR.setContactNormal(glm::normalize(c1.getPosition() - c2.getPosition()));
 		cR.setPenetration(penetration);
@@ -111,7 +111,7 @@ bool CollisionDetection::CircleCircleCollisionTest(Circle & c1, Circle & c2, flo
 	}
 	else if (distanceBetweenCircles == (c1.getRadius() + c2.getRadius()))
 	{
-		cout << "1 Collisions occuring between Circles" << endl;
+		//cout << "1 Collisions occuring between Circles" << endl;
 		cR.setObjects(vector<Circle*> { &c1, &c2 });
 		cR.setContactNormal(glm::normalize(c1.getPosition() - c2.getPosition()));
 		cR.setPenetration(penetration);

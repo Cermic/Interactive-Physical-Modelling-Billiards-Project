@@ -14,6 +14,11 @@ I am aware of the penalties incurred by submitting in full or in part work that 
 
 using namespace std;
 
+void wait(long seconds)
+{
+	seconds = seconds * 1000;
+	Sleep(seconds);
+}
 
 void RunTime::Load()
 {
@@ -22,21 +27,36 @@ void RunTime::Load()
 	window = new GameWindow("Physics motion test", 640, 480, 50, 50);
 	forceReg = new ForceRegistry();
 	//gravity = new Gravity(vec3(0.5f, 0.0f, 0.0f));
-	drag = new Drag(0.3f, 0.01f);
+	drag = new Drag(0.4f, 0.02f);
 	
 	//take in initial values for the "cue ball" velocity and all billiards masses
-	cout << "Insert a mass in kg" << endl;
-	cin >> massInput;
+	//cout << "Insert a mass in kg" << endl;
+	//cin >> massInput;
 
-	cout << "Insert velocity X" << endl;
-	cin >> velocityInput.x;
+	//cout << "Insert velocity X" << endl;
+	//cin >> velocityInput.x;
 
-	cout << "Insert velocity Y" << endl;
-	cin >> velocityInput.y;
+	//cout << "Insert velocity Y" << endl;
+	//cin >> velocityInput.y;
+
+	//positionInput = vec2(100.0, 240.0);
+	//massInput = 5;
+	//velocityInput.x = 1000; // Straight shot
+	//velocityInput.y = 0;
+
+	//positionInput = vec2(350.0, 120.0);
+	//massInput = 5;
+	//velocityInput.x = 500; // Right shot
+	//velocityInput.y = 1000;
+
+	//positionInput = vec2(400.0, 400.0);
+	//massInput = 5;
+	//velocityInput.x = 0; // Left shot 
+	//velocityInput.y = -1000;
 
 	//initialise billiards
 
-	billiards[0] = new Circle(vec2(100.0, 240.0), 10.0f, velocityInput, vec2(0.0, 0.0), (1/(float)massInput), vec2(0, 0), vec3(1.0f, 1.0f, 1.0f), 0); //cue ball
+	billiards[0] = new Circle(positionInput, 10.0f, velocityInput, vec2(0.0, 0.0), (1/(float)massInput), vec2(0, 0), vec3(1.0f, 1.0f, 1.0f), 0); //cue ball
 
 	billiards[1] = new Circle(vec2(400.0, 240.0), 10.0f, vec2(0.0, 0.0), vec2(0.0, 0.0), (1 / (float)massInput), vec2(0, 0), vec3(1.0, 1.0f, 0.0f), 1); //yellow
 
@@ -68,14 +88,14 @@ void RunTime::Load()
 	boundaries[1] = new Segment(vec2(0.0f, 0.0f), vec2(640.0f, 0.0f), vec2(0, 1) ,1); // bottom boundary
 	boundaries[2] = new Segment(vec2(0.0, 0.0f), vec2(0.0f, 480.0f), vec2(1, 0) ,2); // left boundary
 	boundaries[3] = new Segment(vec2(630.0f, 0.0f), vec2(630.0f, 480.0f), vec2(-1, 0) ,3); // right boundary
+
+	wait(3);
 }
 
 void RunTime::ReshapeWindow(int width, int height)
 {
 	window->Reshape(width, height); //delegate handling of reshape to gamewindow class
 }
-
-
 
 void RunTime::Render()
 {
@@ -96,8 +116,12 @@ void RunTime::Render()
 	glutSwapBuffers(); //swap buffers
 }
 
+
+
 void RunTime::Update(float dt)
 {
+	
+
 	forceReg->updateForces(dt); //update all registered forces
 
 	//ball updates using verlet solver
@@ -128,6 +152,40 @@ void RunTime::Update(float dt)
 		{
 			col.SegmentCircleCollisionTest(*boundaries[i], *billiards[j]); //handle collisions between billiards/boundaries
 		}
+	}
+
+	// Velocity management
+	for (int i = 0; i < 16; i++)//i=ball count
+	{
+		int movementCounter = 0;
+
+		/*if (billiards[i]->getVelocity().x < 10)
+		{
+			billiards[i]->setXVelocity(0.0f);
+		}
+
+		if (billiards[i]->getVelocity().y < 10)
+		{
+			billiards[i]->setYVelocity(0.0f);
+		}*/
+
+	//	cout << to_string(billiards[0]->getVelocity()) << endl;
+
+		/*if (billiards[i]->getVelocity().x == 0.0 && billiards[i]->getVelocity().y == 0.0)
+		{
+			movementCounter++;
+
+			if (movementCounter == 16)
+			{
+				cout << "Insert velocity X" << endl;
+				cin >> velocityInput.x;
+
+				cout << "Insert velocity Y" << endl;
+				cin >> velocityInput.y;
+
+				movementCounter = 0;
+			}
+		}*/
 	}
 	
 }

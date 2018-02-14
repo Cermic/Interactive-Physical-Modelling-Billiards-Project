@@ -37,6 +37,16 @@ void Circle::setVelocity(vec2 v)
 	velocity = v;
 }
 
+void Circle::setXVelocity(float x)
+{
+	velocity.x = x;
+}
+
+void Circle::setYVelocity(float y)
+{
+	velocity.y = y;
+}
+
 vec2 Circle::setForceAccum()
 {
 	return vec2();

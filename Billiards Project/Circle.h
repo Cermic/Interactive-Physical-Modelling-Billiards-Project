@@ -51,6 +51,8 @@ public:
 	void setAccelration(vec2 a);
 	void setPosition(vec2 p);
 	void setVelocity(vec2 v);
+	void setXVelocity(float x);
+	void setYVelocity(float y);
 
 	vec2 getForceAccum() { return forceAccum; }
 	vec2 setForceAccum();
