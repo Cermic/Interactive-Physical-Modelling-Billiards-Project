@@ -1,7 +1,0 @@
-﻿  RunTime.cpp
-c:\users\jack\desktop\education\uni\year 2\trimester 2\interactive physical modelling\final project\project files\billiards project\billiards project\runtime.h(39): warning C4156: deletion of an array expression without using the array form of 'delete'; array form substituted
-c:\users\jack\desktop\education\uni\year 2\trimester 2\interactive physical modelling\final project\project files\billiards project\billiards project\runtime.h(39): warning C4154: deletion of an array expression; conversion to pointer supplied
-c:\users\jack\desktop\education\uni\year 2\trimester 2\interactive physical modelling\final project\project files\billiards project\billiards project\runtime.h(40): warning C4156: deletion of an array expression without using the array form of 'delete'; array form substituted
-c:\users\jack\desktop\education\uni\year 2\trimester 2\interactive physical modelling\final project\project files\billiards project\billiards project\runtime.h(40): warning C4154: deletion of an array expression; conversion to pointer supplied
-  Billiards Project.vcxproj -> C:\Users\Jack\Desktop\Education\Uni\Year 2\Trimester 2\Interactive Physical Modelling\Final Project\Project Files\Billiards Project\Debug\Billiards Project.exe
-  Billiards Project.vcxproj -> C:\Users\Jack\Desktop\Education\Uni\Year 2\Trimester 2\Interactive Physical Modelling\Final Project\Project Files\Billiards Project\Debug\Billiards Project.pdb (Full PDB)
