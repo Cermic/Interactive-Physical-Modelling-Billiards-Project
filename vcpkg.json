@@ -5,6 +5,7 @@
     "dependencies": [
       { "name": "glm", "version>=": "0.9.9.8" },
       { "name": "glew", "version>=": "2.2.0" },
+	  { "name": "freeglut", "version>=": "3.2.1" },
       { "name": "sdl2", "version>=": "2.0.16" }
     ]
   }
